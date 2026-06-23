@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mavyc Digital | Sites e Tráfego Pago de Alta Conversão</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+/* Reset e Variáveis /
+:root {
+--primary-color: #0F172A; / Azul Escuro Moderno /
+--secondary-color: #3B82F6; / Azul Vibrante /
+--accent-color: #F59E0B; / Laranja para Call to Actions */
+--text-light: #F8FAFC;
+--text-dark: #1E293B;
+--bg-light: #F1F5F9;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Inter', sans-serif;
+scroll-behavior: smooth;
+}
+
+body {
+color: var(--text-dark);
+background-color: var(--bg-light);
+line-height: 1.6;
+}
+
+/* Navbar */
+header {
+background-color: var(--primary-color);
+padding: 1rem 5%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+color: var(--text-light);
+font-size: 1.8rem;
+font-weight: 800;
+text-decoration: none;
+}
+
+.logo span {
+color: var(--secondary-color);
+}
+
+nav ul {
+list-style: none;
+display: flex;
+gap: 2rem;
+}
+
+nav a {
+color: var(--text-light);
+text-decoration: none;
+font-weight: 600;
+transition: color 0.3s;
+}
+
+nav a:hover {
+color: var(--secondary-color);
+}
+
+.btn-nav {
+background-color: var(--accent-color);
+padding: 0.5rem 1.5rem;
+border-radius: 5px;
+color: white;
+}
+
+.btn-nav:hover {
+background-color: #d97706;
+color: white;
+}
+
+/* Hero Section */
+.hero {
+height: 100vh;
+background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 0 5%;
+color: var(--text-light);
+margin-top: 60px;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+margin-bottom: 1rem;
+max-width: 800px;
+}
+
+.hero p {
+font-size: 1.2rem;
+margin-bottom: 2rem;
+max-width: 600px;
+color: #CBD5E1;
+}
+
+.btn-primary {
+background-color: var(--secondary-color);
+color: white;
+padding: 1rem 2.5rem;
+text-decoration: none;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 5px;
+transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-primary:hover {
+background-color: #2563EB;
+transform: translateY(-3px);
+}
+
+/* Seção Sobre Nós */
+.sobre {
+padding: 5rem 5%;
+background-color: white;
+display: flex;
+align-items: center;
+gap: 4rem;
+}
+
+.sobre-text {
+flex: 1;
+}
+
+.sobre-text h2 {
+font-size: 2.5rem;
+margin-bottom: 1rem;
+color: var(--primary-color);
+}
+
+.sobre-image {
+flex: 1;
+background-color: var(--bg-light);
+height: 400px;
+border-radius: 10px;
+background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80') center/cover;
+}
+
+/* Seção Serviços */
+.servicos {
+padding: 5rem 5%;
+text-align: center;
+}
+
+.servicos h2 {
+font-size: 2.5rem;
+margin-bottom: 3rem;
+color: var(--primary-color);
+}
+
+.cards {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+}
+
+.card {
+background: white;
+padding: 2.5rem;
+border-radius: 10px;
+box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+transition: transform 0.3s;
+text-align: left;
+}
+
+.card:hover {
+transform: translateY(-10px);
+}
+
+.card-icon {
+font-size: 2.5rem;
+color: var(--secondary-color);
+margin-bottom: 1.5rem;
+}
+
+.card h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+}
+
+/* Contato */
+.contato {
+padding: 5rem 5%;
+background-color: var(--primary-color);
+color: var(--text-light);
+text-align: center;
+}
+
+.contato h2 {
+font-size: 2.5rem;
+margin-bottom: 1rem;
+}
+
+form {
+max-width: 600px;
+margin: 2rem auto 0;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+input, textarea {
+width: 100%;
+padding: 1rem;
+border: none;
+border-radius: 5px;
+font-size: 1rem;
+}
+
+textarea {
+resize: vertical;
+min-height: 150px;
+}
+
+button[type="submit"] {
+background-color: var(--accent-color);
+color: white;
+border: none;
+padding: 1rem;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+background-color: #d97706;
+}
+
+/* Footer */
+footer {
+background-color: #0B1120;
+color: var(--text-light);
+text-align: center;
+padding: 2rem 5%;
+}
+
+/* Responsividade /
+@media (max-width: 768px) {
+.sobre {
+flex-direction: column;
+}
+.hero h1 {
+font-size: 2.5rem;
+}
+nav ul {
+display: none; / Menu sanduíche pode ser implementado aqui futuramente */
+}
+}
+</style>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header>
+<a href="#" class="logo">Mavyc <span>Digital</span></a>
+<nav>
+<ul>
+<li><a href="#inicio">Início</a></li>
+<li><a href="#sobre">Nossa Essência</a></li>
+<li><a href="#servicos">Especialidades</a></li>
+<li><a href="#contato" class="btn-nav">Fale Conosco</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- Hero Section -->
+<section id="inicio" class="hero">
+<h1>Transformamos Cliques em Clientes Reais</h1>
+<p>A união definitiva entre Máquinas de Vendas (Sites) e Combustível de Alta Octanagem (Tráfego Pago). Escalamos o seu negócio no digital.</p>
+<a href="#contato" class="btn-primary">Quero Escalar Minhas Vendas</a>
+</section>
+
+<!-- Sobre Nós -->
+<section id="sobre" class="sobre">
+<div class="sobre-text">
+<h2>A Engenharia por trás do Resultado</h2>
+<p>A Mavyc Digital nasceu da certeza de que uma estratégia digital incompleta queima dinheiro. Por isso, unimos as duas pontas essenciais do crescimento online.</p>
+<br>
+<p><strong>Tiago</strong> arquiteta e desenvolve sites, landing pages e e-commerces estruturados sob a ótica da experiência do usuário e da conversão. Uma verdadeira máquina de vendas impecável e veloz.</p>
+<br>
+<p><strong>Maycom</strong> assume a inteligência de dados, dominando a gestão de tráfego pago para injetar o público certo, no momento exato, dentro dessa estrutura.</p>
+<br>
+<p>O resultado? Um ecossistema de vendas previsível e escalável para a sua empresa.</p>
+</div>
+<div class="sobre-image"></div>
+</section>
+
+<!-- Serviços -->
+<section id="servicos" class="servicos">
+<h2>Nossas Especialidades</h2>
+<div class="cards">
+<!-- Card Tiago -->
+<div class="card">
+<div class="card-icon">💻</div>
+<h3>Desenvolvimento Web</h3>
+<p>Criação de sites institucionais, Landing Pages de alta conversão e lojas virtuais. Estruturas rápidas, otimizadas para SEO e com design focado em reter a atenção do seu cliente.</p>
+</div>
+
+<!-- Card Maycom -->
+<div class="card">
+<div class="card-icon">🚀</div>
+<h3>Tráfego Pago</h3>
+<p>Gestão estratégica de anúncios no Google Ads, Meta Ads (Facebook e Instagram) e TikTok Ads. Compramos dados, analisamos métricas e otimizamos campanhas para garantir o menor Custo por Aquisição (CPA) possível.</p>
+</div>
+
+<!-- Card Sinergia -->
+<div class="card">
+<div class="card-icon">⚙️</div>
+<h3>Consultoria Estratégica</h3>
+<p>Análise completa do seu funil de vendas digital. Identificamos gargalos desde o clique no anúncio até o carregamento do botão de compra no seu site.</p>
+</div>
+</div>
+</section>
+
+<!-- Contato -->
+<section id="contato" class="contato">
+<h2>Pronto para dominar o seu mercado?</h2>
+<p>Preencha os dados abaixo e nossa equipe entrará em contato para uma análise inicial do seu projeto.</p>
+<form action="#" method="POST">
+<input type="text" name="nome" placeholder="Seu Nome ou Empresa" required>
+<input type="email" name="email" placeholder="Seu melhor e-mail" required>
+<input type="tel" name="whatsapp" placeholder="WhatsApp (com DDD)" required>
+<textarea name="mensagem" placeholder="Como podemos ajudar o seu negócio hoje?" required></textarea>
+<button type="submit">Solicitar Orçamento</button>
+</form>
+</section>
+
+<!-- Rodapé -->
+<footer>
+<p>© 2026 Mavyc Digital. Todos os direitos reservados. Feito com excelência por Tiago e Maycom.</p>
+</footer>
+
+</body>
+</html>
