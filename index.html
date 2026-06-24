@@ -1,0 +1,573 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mavyc Digital | Sites, Tráfego Pago e Inteligência Artificial</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset e Variáveis */
+        :root {
+            --primary-color: #0F172A; /* Azul Escuro Moderno */
+            --secondary-color: #3B82F6; /* Azul Vibrante */
+            --accent-color: #10B981; /* Verde Emerald para Conversão/WhatsApp */
+            --ai-color: #8B5CF6; /* Roxo para Inteligência Artificial */
+            --text-light: #F8FAFC;
+            --text-dark: #1E293B;
+            --bg-light: #F1F5F9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn-nav {
+            background-color: var(--ai-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .btn-nav:hover {
+            background-color: #7C3AED;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.92)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            color: var(--text-light);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            max-width: 900px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            color: #CBD5E1;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #2563EB;
+            transform: translateY(-3px);
+        }
+
+        .btn-ai-cta {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--ai-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .btn-ai-cta:hover {
+            background-color: var(--ai-color);
+            transform: translateY(-3px);
+        }
+
+        /* Seção IA Demo (O diferencial do seu site) */
+        .ia-demo-section {
+            padding: 6rem 5%;
+            background-color: #0F172A;
+            color: white;
+            text-align: center;
+        }
+
+        .ia-demo-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ia-demo-section h2 span {
+            color: var(--ai-color);
+        }
+
+        .ia-demo-section .subtitle {
+            color: #94A3B8;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .ai-simulator-box {
+            background: #1E293B;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #CBD5E1;
+            font-weight: 600;
+        }
+
+        .ai-input {
+            width: 100%;
+            padding: 1rem;
+            background: #0F172A;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .ai-input:focus {
+            outline: none;
+            border-color: var(--ai-color);
+        }
+
+        .btn-ai-run {
+            width: 100%;
+            background-color: var(--ai-color);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-ai-run:hover {
+            background-color: #7C3AED;
+        }
+
+        /* Painel de Resultados da IA */
+        .ai-result-panel {
+            margin-top: 2rem;
+            background: #0F172A;
+            border-radius: 8px;
+            padding: 2rem;
+            border-left: 4px solid var(--ai-color);
+            display: none; /* Ativado via JS */
+        }
+
+        .ai-loading {
+            text-align: center;
+            color: #94A3B8;
+            display: none;
+            margin-top: 1.5rem;
+            font-style: italic;
+        }
+
+        .result-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .result-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--ai-color);
+            margin-bottom: 0.25rem;
+            font-weight: 800;
+        }
+
+        .result-content {
+            color: #E2E8F0;
+            font-size: 1.1rem;
+        }
+
+        /* Seção Sobre Nós & Contatos Diretos */
+        .sobre {
+            padding: 6rem 5%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .sobre-text {
+            flex: 1;
+        }
+
+        .sobre-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .team-contacts {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .member-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .member-card.maycom {
+            border-top-color: #F59E0B;
+        }
+
+        .member-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            color: var(--primary-color);
+        }
+
+        .member-card .role {
+            font-size: 0.85rem;
+            color: #64748B;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #059669;
+        }
+
+        .sobre-image {
+            flex: 1;
+            background-color: var(--bg-light);
+            height: 450px;
+            border-radius: 10px;
+            background: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80') center/cover;
+        }
+
+        /* Seção Serviços */
+        .servicos {
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        .servicos h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: left;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .card.ai-card {
+            border: 2px solid #DDD6FE;
+        }
+        .card.ai-card .card-icon {
+            color: var(--ai-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0B1120;
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 5%;
+            border-top: 1px solid #1E293B;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .sobre {
+                flex-direction: column;
+            }
+            .team-contacts {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            nav ul {
+                display: none;
+            }
+            .ai-simulator-box {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Mavyc <span>Digital</span></a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#ia-demo">Mavyc AI</a></li>
+                <li><a href="#sobre">Quem Somos</a></li>
+                <li><a href="#servicos">Especialidades</a></li>
+                <li><a href="#sobre" class="btn-nav">Falar com Especialista</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h1>Construímos Estruturas de Vendas Potencializadas por IA</h1>
+        <p>A união definitiva entre Engenharia de Conversão (Sites), Tráfego Pago Inteligente e Automação de Inteligência Artificial para escalar o seu faturamento.</p>
+        <div class="hero-buttons">
+            <a href="#sobre" class="btn-primary">Fale Conosco</a>
+            <a href="#ia-demo" class="btn-ai-cta">Testar Simulador de IA</a>
+        </div>
+    </section>
+
+    <section id="ia-demo" class="ia-demo-section">
+        <h2>Experimente o Futuro: <span>Mavyc AI</span></h2>
+        <p class="subtitle">Veja uma amostra de como a engenharia de dados e IA revolucionará o site do seu negócio.</p>
+        
+        <div class="ai-simulator-box">
+            <div class="form-group">
+                <label for="biz-name">Nome do seu Negócio</label>
+                <input type="text" id="biz-name" class="ai-input" placeholder="Ex: Clínica Sorriso Perfeito, Advocacia Silva">
+            </div>
+            <div class="form-group">
+                <label for="biz-segment">O que você vende / Segmento</label>
+                <input type="text" id="biz-segment" class="ai-input" placeholder="Ex: Implantes Dentários, Advocacia Trabalhista, Loja de Roupas">
+            </div>
+            <button class="btn-ai-run" onclick="rodarSimuladorIA()">Gerar Estratégia Computada por IA</button>
+            
+            <div id="ai-loading" class="ai-loading">
+                Analisando mercado... Cruzando dados de tráfego... Arquitetando conversão...
+            </div>
+
+            <div id="ai-result" class="ai-result-panel">
+                <div class="result-block">
+                    <div class="result-title">🎯 Headline Ideal para seu Novo Site (Por Tiago)</div>
+                    <div id="res-headline" class="result-content"></div>
+                </div>
+                <div class="result-block">
+                    <div class="result-title">🚀 Público de Alta Conversão no Meta/Google Ads (Por Maycom)</div>
+                    <div id="res-traffic" class="result-content"></div>
+                </div>
+                <div class="result-block">
+                    <div class="result-title">🤖 Automação de IA Sugerida</div>
+                    <div id="res-automation" class="result-content"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="sobre-text">
+            <h2>A Engenharia por trás do seu Resultado</h2>
+            <p>A Mavyc Digital nasceu da certeza de que uma estratégia digital incompleta queima dinheiro. Por isso, unimos as duas pontas essenciais do crescimento online à vanguarda tecnológica.</p>
+            
+            <div class="team-contacts">
+                <div class="member-card">
+                    <h4>Tiago</h4>
+                    <div class="role">Sites, UX/UI & Engenharia de IA</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #475569;">Arquiteta plataformas velozes e integra agentes de IA inteligentes para atendimento automatizado.</p>
+                    <a href="https://wa.me/5584981549052?text=Olá%20Tiago,%20vim%20pelo%20site!%20Gostaria%20de%20um%20orçamento%20para%20desenvolvimento%20web%20e%20IA." target="_blank" class="btn-whatsapp">
+                        Chamar Tiago no WhatsApp
+                    </a>
+                </div>
+                
+                <div class="member-card maycom">
+                    <h4>Maycom</h4>
+                    <div class="role">Gestão de Tráfego & Inteligência de Dados</div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: #475569;">Domina algoritmos de anúncios para atrair os leads qualificados corretos direto para a estrutura.</p>
+                    <a href="https://wa.me/5584994649251?text=Olá%20Maycom,%20vim%20pelo%20site!%20Quero%20escalar%20as%20vendas%20do%20meu%20negócio%20com%20tráfego%20pago." target="_blank" class="btn-whatsapp" style="background-color: #F59E0B;">
+                        Chamar Maycom no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="sobre-image"></div>
+    </section>
+
+    <section id="servicos" class="servicos">
+        <h2>Nossas Especialidades</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Desenvolvimento Web</h3>
+                <p>Criação de sites institucionais, Landing Pages de alta conversão e lojas virtuais. Estruturas rápidas, otimizadas para SEO e com foco em experiência do usuário.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Tráfego Pago</h3>
+                <p>Gestão estratégica de anúncios no Google Ads e Meta Ads (Facebook/Instagram). Compramos dados reais para garantir o menor Custo por Aquisição (CPA) do seu mercado.</p>
+            </div>
+
+            <div class="card ai-card">
+                <div class="card-icon">🧠</div>
+                <h3>Sistemas e Agentes de IA</h3>
+                <p>Integração de chatbots inteligentes conectados ao GPT ou Anthropic no WhatsApp e sites dos nossos clientes para qualificar leads, responder dúvidas e fechar vendas 24h por dia.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mavyc Digital. Todos os direitos reservados.</p>
+        <p style="font-size: 0.85rem; color: #64748B; margin-top: 0.5rem;">Desenvolvido estrategicamente por Tiago e Maycom.</p>
+    </footer>
+
+    <script>
+        function rodarSimuladorIA() {
+            const name = document.getElementById('biz-name').value;
+            const segment = document.getElementById('biz-segment').value;
+
+            if (!name || !segment) {
+                alert("Por favor, preencha o nome e o segmento do seu negócio para a IA processar!");
+                return;
+            }
+
+            // Ativa o Loading e oculta resultados antigos
+            document.getElementById('ai-result').style.display = 'none';
+            document.getElementById('ai-loading').style.display = 'block';
+
+            // Simula um delay de resposta da Inteligência Artificial (1.8 segundos)
+            setTimeout(() => {
+                document.getElementById('ai-loading').style.display = 'none';
+                
+                // Alimenta os campos simulando a geração inteligente baseada no input do usuário
+                document.getElementById('res-headline').innerHTML = `<strong>"Como o seu negócio (${name}) pode dominar o mercado de ${segment} atraindo clientes prontos para comprar todos os dias sem depender de indicações."</strong>`;
+                
+                document.getElementById('res-traffic').innerText = `Público-alvo personalizado para ${segment}: Homens e Mulheres de 25-54 anos, com interesse em refinamento de busca, geolocalizados no raio de conversão da sua empresa, excluindo o público que apenas busca conteúdo informativo gratuito.`;
+                
+                document.getElementById('res-automation').innerText = `Agente de Inteligência Artificial integrado ao botão de WhatsApp da sua empresa para fazer a triagem imediata de leads vindos dos anúncios, economizando tempo de atendimento comercial.`;
+
+                // Mostra o painel de resultados com animação de fade
+                document.getElementById('ai-result').style.display = 'block';
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
